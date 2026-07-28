@@ -1,0 +1,18 @@
+apiVersion: inv.sdcio.dev/v1alpha1
+kind: DiscoveryRule
+metadata:
+  name: dev1-address-netconf
+  namespace: default
+spec:
+  period: 1m
+  concurrentScans: 1
+  defaultSchema:
+    provider: srl.nokia.sdcio.dev
+    version: 24.10.1
+  addresses:
+  - address: 172.21.0.200
+    hostName: dev1
+  targetConnectionProfiles:
+  - credentials: srl.nokia.sdcio.dev
+    connectionProfile: netconf
+    syncProfile: netconf-getconfig

@@ -1,0 +1,20 @@
+apiVersion: inv.sdcio.dev/v1alpha1
+kind: DiscoveryRule
+metadata:
+  name: ocnos-lab
+  namespace: default
+spec:
+  period: 1m
+  concurrentScans: 2
+  defaultSchema:
+    provider: ocnos-sp.ipinfusion.sdcio.dev
+    version: 7.0.0
+  addresses:
+  - address: 172.20.0.21
+    hostName: r1
+  - address: 172.20.0.22
+    hostName: r2
+  targetConnectionProfiles:
+  - credentials: ocnos.ipinfusion.sdcio.dev
+    connectionProfile: netconf
+    syncProfile: netconf-getconfig
